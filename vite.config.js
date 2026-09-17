@@ -7,7 +7,7 @@ export default defineConfig({
   server: {
     proxy: {
       "/api": {
-        target: "https://chrono-watch-care-production-7a92.up.railway.app/",
+        target: "https://chrono-watch-care-production-7a92.up.railway.app",
         changeOrigin: true,
         secure: true,
       },
