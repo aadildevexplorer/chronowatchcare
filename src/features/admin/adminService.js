@@ -1,38 +1,46 @@
 import axios from "axios";
 
-// fetchUsers
+const api = axios.create({
+  baseURL: "https://chrono-watch-care-production-7a92.up.railway.app/api",
+  withCredentials: true,
+});
+
+// Fetch Users
 const fetchUsers = async (token) => {
   const options = {
     headers: {
-      authorization: `Bearer ${token}`,
+      Authorization: `Bearer ${token}`,
     },
   };
 
-  const response = await axios.get("/api/admin/users", options);
+  const response = await api.get("/admin/users", options);
+
   return response.data;
 };
 
-// fetchWatches
+// Fetch Watches
 const fetchWatches = async (token) => {
   const options = {
     headers: {
-      authorization: `Bearer ${token}`,
+      Authorization: `Bearer ${token}`,
     },
   };
 
-  const response = await axios.get("/api/admin/watches", options);
+  const response = await api.get("/admin/watches", options);
+
   return response.data;
 };
 
-// fetchNotes
+// Fetch Notes
 const fetchNotes = async (token) => {
   const options = {
     headers: {
-      authorization: `Bearer ${token}`,
+      Authorization: `Bearer ${token}`,
     },
   };
 
-  const response = await axios.get("/api/admin/watches", options);
+  const response = await api.get("/admin/notes", options);
+
   return response.data;
 };
 
@@ -41,4 +49,5 @@ const adminService = {
   fetchWatches,
   fetchNotes,
 };
+
 export default adminService;

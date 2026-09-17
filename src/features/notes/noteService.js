@@ -1,10 +1,12 @@
 import axios from "axios";
 
 const api = axios.create({
-  baseURL: import.meta.env.VITE_API_URL,
+  baseURL:
+    "https://chrono-watch-care-production-7a92.up.railway.app/api",
   withCredentials: true,
 });
 
+// Fetch Notes
 const fetchNotes = async (id, token) => {
   const options = {
     headers: {
@@ -17,6 +19,7 @@ const fetchNotes = async (id, token) => {
   return response.data;
 };
 
+// Add Note
 const addNote = async (formData, token) => {
   const options = {
     headers: {

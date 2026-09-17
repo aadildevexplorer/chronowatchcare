@@ -1,7 +1,8 @@
 import axios from "axios";
 
 const api = axios.create({
-  baseURL: import.meta.env.VITE_API_URL,
+  baseURL:
+    "https://chrono-watch-care-production-7a92.up.railway.app/api",
   withCredentials: true,
 });
 
@@ -66,11 +67,9 @@ const updateComplaint = async (id, token) => {
   }
 };
 
-const watchService = {
+export default {
   raiseComplaint,
   fetchComplaints,
   fetchComplaint,
   updateComplaint,
 };
-
-export default watchService;

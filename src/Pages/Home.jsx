@@ -13,7 +13,7 @@ const Home = () => {
     }
   }, [user]);
 
-  if (user?.isAdmin && user.email === "aadilkhanadmin@gmail.com") {
+  if (user?.isAdmin && user.email === "iamadmin@gmail.com") {
     return (
       <div className="container p-5">
         <div className="tx">

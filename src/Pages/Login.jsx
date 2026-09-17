@@ -10,7 +10,7 @@ const Login = () => {
   const navigate = useNavigate();
 
   const { user, isLoading, isError, message, isSuccess } = useSelector(
-    (state) => state.auth
+    (state) => state.auth,
   );
 
   const [formData, setformData] = useState({
@@ -49,7 +49,7 @@ const Login = () => {
       <div>
         <p>Login Successfully</p>
       </div>,
-      { position: "top-center", theme: "dark" }
+      { position: "top-center", theme: "dark" },
     );
 
     dispatch(loginUser(formData));
@@ -65,7 +65,7 @@ const Login = () => {
         <div>
           <p>Invalid Credentials</p>
         </div>,
-        { position: "top-center", theme: "dark" }
+        { position: "top-center", theme: "dark" },
       );
     }
   }, [user, isSuccess, isError, navigate]);
@@ -160,7 +160,7 @@ const Login = () => {
         </div>
         <p className="float-end">
           Don't have an account?<Link to={"/register"}>Sign up</Link>
-          <a href="https://hamza-s-portfolio-vg5o.vercel.app/">
+          <a href="https://mdaadil.vercel.app/">
             <p>
               <span style={{ color: "black" }}>Designed by</span> Mohammad Aadil
             </p>
