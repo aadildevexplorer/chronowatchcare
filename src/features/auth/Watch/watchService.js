@@ -1,63 +1,68 @@
 import axios from "axios";
 
-// Complaint Raised
+const api = axios.create({
+  baseURL: import.meta.env.VITE_API_URL,
+  withCredentials: true,
+});
 
+// Complaint Raised
 const raiseComplaint = async (formData, token) => {
-  let options = {
+  const options = {
     headers: {
-      authorization: `Bearer ${token}`,
+      Authorization: `Bearer ${token}`,
     },
   };
 
-  const response = await axios.post("/api/service", formData, options);
+  const response = await api.post("/service", formData, options);
+
   return response.data;
 };
 
 // Complaint get
-
 const fetchComplaints = async (token) => {
-  let options = {
+  const options = {
     headers: {
-      authorization: `Bearer ${token}`,
+      Authorization: `Bearer ${token}`,
     },
   };
 
-  const response = await axios.get("/api/service", options);
-  // console.log(response.data);
+  const response = await api.get("/service", options);
+
   return response.data;
 };
 
-// for Single id
-
+// Single complaint by ID
 const fetchComplaint = async (id, token) => {
-  let options = {
+  const options = {
     headers: {
-      authorization: `Bearer${token}`,
+      Authorization: `Bearer ${token}`,
     },
   };
 
-  const response = await axios.get(`/api/service/${id}`, options);
+  const response = await api.get(`/service/${id}`, options);
+
   return response.data;
 };
 
-// for complaint
-
+// Update complaint
 const updateComplaint = async (id, token) => {
-  let options = {
+  const options = {
     headers: {
-      authorization: `Bearer${token}`,
+      Authorization: `Bearer ${token}`,
     },
   };
 
   try {
-    const response = await axios.put(
-      `/api/service/${id}`,
+    const response = await api.put(
+      `/service/${id}`,
       { status: "closed" },
-      options,
+      options
     );
+
     return response.data;
   } catch (error) {
     console.log(error);
+    throw error;
   }
 };
 

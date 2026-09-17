@@ -1,29 +1,35 @@
 import axios from "axios";
 
+const api = axios.create({
+  baseURL: import.meta.env.VITE_API_URL,
+  withCredentials: true,
+});
+
 const fetchNotes = async (id, token) => {
   const options = {
     headers: {
-      authorization: `Bearer ${token}`,
+      Authorization: `Bearer ${token}`,
     },
   };
-  const response = await axios.get(`/api/service/${id}/note`, options);
+
+  const response = await api.get(`/service/${id}/note`, options);
+
   return response.data;
 };
 
 const addNote = async (formData, token) => {
   const options = {
     headers: {
-      authorization: `Bearer ${token}`,
+      Authorization: `Bearer ${token}`,
     },
   };
 
-  //   console.log(token);
-
-  const response = await axios.post(
-    `/api/service/${formData.id}/note`,
+  const response = await api.post(
+    `/service/${formData.id}/note`,
     formData,
-    options,
+    options
   );
+
   return response.data;
 };
 
