@@ -6,10 +6,7 @@ const fetchNotes = async (id, token) => {
       authorization: `Bearer ${token}`,
     },
   };
-  const response = await axios.get(
-    `https://chrono-watch-care-2.onrender.com/api/service/${id}/note`,
-    options
-  );
+  const response = await axios.get(`/api/service/${id}/note`, options);
   return response.data;
 };
 
@@ -23,9 +20,9 @@ const addNote = async (formData, token) => {
   //   console.log(token);
 
   const response = await axios.post(
-    `https://chrono-watch-care-2.onrender.com/api/service/${formData.id}/note`,
+    `/api/service/${formData.id}/note`,
     formData,
-    options
+    options,
   );
   return response.data;
 };

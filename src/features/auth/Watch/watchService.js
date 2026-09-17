@@ -9,11 +9,7 @@ const raiseComplaint = async (formData, token) => {
     },
   };
 
-  const response = await axios.post(
-    "https://chrono-watch-care-2.onrender.com/api/service",
-    formData,
-    options
-  );
+  const response = await axios.post("/api/service", formData, options);
   return response.data;
 };
 
@@ -26,10 +22,7 @@ const fetchComplaints = async (token) => {
     },
   };
 
-  const response = await axios.get(
-    "https://chrono-watch-care-2.onrender.com/api/service",
-    options
-  );
+  const response = await axios.get("/api/service", options);
   // console.log(response.data);
   return response.data;
 };
@@ -43,11 +36,7 @@ const fetchComplaint = async (id, token) => {
     },
   };
 
-  const response = await axios.get(
-    `https://chrono-watch-care-2.onrender.com/api/service/${id}`,
-    options
-  );
-  // console.log(response.data);
+  const response = await axios.get(`/api/service/${id}`, options);
   return response.data;
 };
 
@@ -64,14 +53,12 @@ const updateComplaint = async (id, token) => {
     const response = await axios.put(
       `/api/service/${id}`,
       { status: "closed" },
-      options
+      options,
     );
     return response.data;
   } catch (error) {
-    console.log(error)
+    console.log(error);
   }
-
-  
 };
 
 const watchService = {

@@ -37,19 +37,6 @@ const Login = () => {
     }
   };
 
-  // const handleSubmit = (e) => {
-  //   e.preventDefault();
-
-  //   if (password.length < 5) {
-  //     setPasswordError("Password must be at least 5 characters long.");
-  //     return;
-  //   }
-
-  //   dispatch(loginUser(formData));
-
-  //   dispatch(loginUser({ ...formData, registrationNumber }));
-  // };
-
   const handleSubmit = (e) => {
     e.preventDefault();
 
@@ -70,12 +57,6 @@ const Login = () => {
 
   useEffect(() => {
     if (isSuccess && user) {
-      // toast.success(
-      //   <div>
-      //     <p>Login Successfully</p>
-      //   </div>,
-      //   { position: "top-center", theme: "dark" }
-      // );
       navigate("/");
     }
 
@@ -181,7 +162,7 @@ const Login = () => {
           Don't have an account?<Link to={"/register"}>Sign up</Link>
           <a href="https://hamza-s-portfolio-vg5o.vercel.app/">
             <p>
-              <span style={{ color: "black" }}>Designed by</span> Aadil Khan
+              <span style={{ color: "black" }}>Designed by</span> Mohammad Aadil
             </p>
           </a>
         </p>
