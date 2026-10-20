@@ -1,7 +1,7 @@
 import axios from "axios";
 
 const api = axios.create({
-  baseURL: "https://chrono-watch-care-production-7a92.up.railway.app/api",
+  baseURL: "https://chrono-watch-care-2.onrender.com/api",
   withCredentials: true,
 });
 
